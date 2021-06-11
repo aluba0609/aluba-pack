@@ -1,9 +1,9 @@
 {
-  "name": "zf-pack",
+  "name": "aluba",
   "version": "1.0.0",
   "main": "index.js",
   "license": "ISC",
   "bin": {
-    "zf-pack": "./bin/zf-pack.js"
+    "aluba": "./bin/aluba.js"
   }
 }
