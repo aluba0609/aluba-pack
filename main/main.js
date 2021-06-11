@@ -14,11 +14,11 @@ class Compiler{
     }
     buildModule(modulePath,isEntry){
         let source=this.getSource(modulePath)
-        let mouduleName='./'+path.relative(this.root,modulePath)
+        let moduleName='./'+path.relative(this.root,modulePath)
         if(isEntry){
-            this.entryId=mouduleName;
+            this.entryId=moduleName;
         }
-        let {sourceCode,dependencies}=this.parse(source,path.dirname(modulePath))
+        let {sourceCode,dependencies}=this.parse(source,path.dirname(moduleName))
         this.modules[moduleName]=sourceCode
     }
     run(){
