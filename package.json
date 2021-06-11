@@ -1,9 +1,9 @@
 {
-  "name": "aluba",
+  "name": "aluba-pack",
   "version": "1.0.0",
   "main": "index.js",
   "license": "ISC",
   "bin": {
-    "aluba": "./bin/aluba.js"
+    "aluba-pack": "./bin/aluba-pack.js"
   }
 }
