@@ -4,6 +4,7 @@ let babylon = require('babylon');
 let traverse = require('@babel/traverse').default;
 let t = require('@babel/types');
 let generator = require('@babel/generator').default;
+let ejs=require('ejs')
 
 class Compiler{
     constructor(config){
@@ -53,8 +54,18 @@ class Compiler{
         })
         // console.log(this.modules)
     }
+    emitFile(){
+        let main=path.join(this.config.output.path,this.config.output.filename)
+
+        let templateEjs=this.getSource(path.join(__dirname,'main.ejs'));
+        let code = ejs.render(templateEjs,{entryId:this.entryId,modules:this.modules});
+        this.assets={};
+        this.assets[main]=code;
+        fs.writeFileSync(main,this.assets[main])
+    }
     run(){
         this.buildModule(path.resolve(this.root,this.entry),true)
+        this.emitFile()
     }
 }
 module.exports=Compiler
